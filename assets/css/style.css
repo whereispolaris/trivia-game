@@ -1,0 +1,20 @@
+/* Color Palette : https://coolors.co/edffec-61e786-5f5aa2-355691-3f4045 */
+
+.colors {
+    color: #5F5AA2;
+    color: #61E786;
+    color: #355691;
+    color: #3F4045;
+    color: #EDFFEC;
+}
+
+body {
+    background: #61E786;
+}
+
+.container {
+    background: #5F5AA2;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
