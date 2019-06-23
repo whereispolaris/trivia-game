@@ -1,7 +1,7 @@
 // Trivia Game API:  https://opentdb.com/api.php?amount=20&category=23&difficulty=easy&type=multiple
 $.ajax({
     method: "GET",
-    url: "https://opentdb.com/api.php?amount=20&category=23&difficulty=easy&type=multiple",
+    url: "https://opentdb.com/api.php?amount=10&category=23&difficulty=easy&type=multiple",
     success: function (questions) {
         console.log('Success', questions);
         // Question
