@@ -77,7 +77,7 @@ function questionGenerator(questionNumber) {
         if (ansArray[selectedID].correct) {
             console.log("This is correct");
             correctAnswers += 1;
-            emptyDisplays()
+            emptyDisplays();
             questionGenerator(questionNumber + 1);
         }
         else {
@@ -91,7 +91,11 @@ function questionGenerator(questionNumber) {
 
 }
 
+
+
 questionGenerator(0);
+
+
 
 
 

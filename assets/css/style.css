@@ -14,12 +14,15 @@ body {
 
 .container {
     background: #5F5AA2;
-    padding: 20px;
+    padding: 30px;
     margin: 50px auto;
     border-radius: 10px;
 }
 
-form {
-    margin-left: 20px;
-    color: #EDFFEC;
+h1 {
+    color: #61E786;
+}
+
+.questionBox {
+    margin: 0 auto;
 }

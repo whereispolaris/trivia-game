@@ -19,15 +19,34 @@
 
 <body>
     <div class="container">
-        <h1>Trivia Game!</h1>
-        <div class="row">
-            <div id="questionDisplay" class="col-12">
-                <!-- <h4>Question: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sapiente quidem aliquid!
-                </h4> -->
-
+        <h1 class="text-sm-center">Trivia Game!</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis consectetur velit maiores, unde reiciendis a
+            recusandae id. Delectus natus aliquam explicabo placeat rerum. Quia ipsam aliquid id, animi assumenda
+            doloremque.</p>
+        <div></div>
+        <div class="row questionBox">
+            <div class="card col-8">
+                <div class="card-header" id="questionDisplay">
+                    <!-- This is where the question goess -->
+                </div>
+                <div class="card-body">
+                    <form id="answersDisplay">
+                        <!-- This is where the answers go -->
+                    </form>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="card-header" id="counterDisplay">
+                    <!-- This is where the timer will go -->
+                    <h4>Timer: 20:10</h4>
+                </div>
+                <div class="card-body">
+                    <h6>Correct Answers: 3</h6>
+                    <h6>Incorrect Answers: 1 </h6>
+                    <h6>Unanswered Questions: 0</h6>
+                </div>
             </div>
 
-            <form id="answersDisplay"></form>
         </div>
     </div>
     </div>
