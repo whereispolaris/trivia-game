@@ -39,6 +39,12 @@ triviaQuestions = [
 
 // === Functions ===
 
+function emptyDisplays() {
+    $("#questionDisplay").empty();
+    $("#answersDisplay").empty();
+}
+
+
 function questionGenerator(questionNumber) {
     // This fuction generates the question and answer from the triviaQuestions array
     var question = $("<h4>");
@@ -67,7 +73,16 @@ function questionGenerator(questionNumber) {
     $("input[name='answers']").on("click", function () {
         console.log("radio button clicked");
         selectedID = $(this).attr("id");
-        console.log(ansArray[selectedID].correct);
+        if (ansArray[selectedID].correct) {
+            console.log("This is correct")
+            emptyDisplays()
+            questionGenerator(questionNumber + 1);
+        }
+        else {
+            console.log("This is incorrect");
+            emptyDisplays();
+            questionGenerator(questionNumber + 1);
+        }
     });
 
 
