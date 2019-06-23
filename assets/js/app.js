@@ -1,42 +1,46 @@
-// Trivia Game API:  https://opentdb.com/api.php?amount=20&category=23&difficulty=easy&type=multiple
+// Demo Video https://www.youtube.com/watch?v=xhmmiRmxQ8Q&feature=youtu.be
 
+// ==== Global Variables ====
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var unansweredQuestions = 0;
+
+// === Questions Array ===
 triviaQuestions = [
     {
         questionText: "What is the capital of China?",
         answers: [
-            { letterChoice: "a", answerText: "Bangkok", correct: false },
-            { letterChoice: "b", answerText: "Tokyo", correct: false },
-            { letterChoice: "c", answerText: "Hong Kong", correct: false },
-            { letterChoice: "d", answerText: "Beijing", correct: true },
+            { answerIndex: 0, answerText: "Bangkok", correct: false },
+            { answerIndex: 1, answerText: "Tokyo", correct: false },
+            { answerIndex: 2, answerText: "Hong Kong", correct: false },
+            { answerIndex: 3, answerText: "Beijing", correct: true },
         ]
     },
     {
         questionText: "What country has the most natural lakes?",
         answers: [
-            { letterChoice: "a", answerText: "Canada", correct: true },
-            { letterChoice: "b", answerText: "India", correct: false },
-            { letterChoice: "c", answerText: "United States", correct: false },
-            { letterChoice: "d", answerText: "Australia", correct: false },
+            { answerIndex: 0, answerText: "Canada", correct: true },
+            { answerIndex: 1, answerText: "India", correct: false },
+            { answerIndex: 2, answerText: "United States", correct: false },
+            { answerIndex: 3, answerText: "Australia", correct: false },
         ]
     },
     {
         questionText: "In what country can you visit Machu Picchu?",
         answers: [
-            { letterChoice: "a", answerText: "Colombia", correct: false },
-            { letterChoice: "b", answerText: "Chile", correct: false },
-            { letterChoice: "c", answerText: "Peru", correct: true },
-            { letterChoice: "d", answerText: "Bolivia", correct: false },
+            { answerIndex: 0, answerText: "Colombia", correct: false },
+            { answerIndex: 1, answerText: "Chile", correct: false },
+            { answerIndex: 2, answerText: "Peru", correct: true },
+            { answerIndex: 3, answerText: "Bolivia", correct: false },
         ]
     },
 
 ];
 
-// ==== Global Variables ====
+// === Functions ===
 
-
-// This fuction generates the question and answer from the triviaQuestions array 
 function questionGenerator(questionNumber) {
-
+    // This fuction generates the question and answer from the triviaQuestions array
     var question = $("<h4>");
     // Generate question element
     question.addClass("question");
@@ -52,21 +56,26 @@ function questionGenerator(questionNumber) {
         var answerRadio = $("<input>");
         answerRadio.attr("type", "radio");
         answerRadio.attr("name", "answers")
-        answerRadio.attr("id", ansArray[a].letterChoice);
+        answerRadio.attr("id", ansArray[a].answerIndex);
         var answerLabel = $("<label>");
-        answerLabel.attr("for", ansArray[a].letterChoice);
+        answerLabel.attr("for", ansArray[a].answerIndex);
         answerLabel.text(ansArray[a].answerText);
         $("#answersDisplay").append(answerRadio, " ", answerLabel, "<br>");
     }
+
+    // Radio Button Event Handler
+    $("input[name='answers']").on("click", function () {
+        console.log("radio button clicked");
+        selectedID = $(this).attr("id");
+        console.log(ansArray[selectedID].correct);
+    });
+
+
 }
 
 questionGenerator(0);
 
-$("input[name='answers']").on("click", function () {
-    console.log("radio button clicked");
 
-
-});
 
 
 
