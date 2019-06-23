@@ -1,4 +1,5 @@
 // Demo Video https://www.youtube.com/watch?v=xhmmiRmxQ8Q&feature=youtu.be
+// Trivia Questions https://usefultrivia.com/geography_trivia/
 
 // ==== Global Variables ====
 var correctAnswers = 0;
@@ -74,12 +75,14 @@ function questionGenerator(questionNumber) {
         console.log("radio button clicked");
         selectedID = $(this).attr("id");
         if (ansArray[selectedID].correct) {
-            console.log("This is correct")
+            console.log("This is correct");
+            correctAnswers += 1;
             emptyDisplays()
             questionGenerator(questionNumber + 1);
         }
         else {
             console.log("This is incorrect");
+            incorrectAnswers += 1;
             emptyDisplays();
             questionGenerator(questionNumber + 1);
         }
@@ -111,6 +114,6 @@ questionGenerator(0);
 
 // === TO DO ===
 // Build Layout - DONE
-// Create Questions array
+// Create Questions array - DONE
 // Build Timer
 // Go over slideshow
