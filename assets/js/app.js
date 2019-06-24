@@ -91,8 +91,6 @@ function questionGenerator(questionNumber) {
 
 }
 
-
-
 questionGenerator(0);
 
 
