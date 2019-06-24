@@ -9,12 +9,12 @@
 }
 
 body {
-    background: #5F5AA2;
+    background: #355691;
     background-image: url("../img/Abstract-World-Map-Transparent-Background.png");
 }
 
 .container {
-    background: #355691;
+    background: white;
     padding: 40px;
     margin: 100px auto;
     border-radius: 10px;
