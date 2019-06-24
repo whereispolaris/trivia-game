@@ -5,6 +5,7 @@
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredQuestions = 0;
+var questionCount = 0;
 
 // === Questions Array ===
 triviaQuestions = [
@@ -91,12 +92,46 @@ function questionGenerator(questionNumber) {
 
 }
 
+// === Timer Start ===
+var timerNumber = 10;
+
+var intervalId;
+
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+}
+
+//  The decrement function.
+function decrement() {
+    //  Decrease number by one.
+    timerNumber--;
+    //  Show the number in the #show-number tag.
+    $("#show-number").html("<h2>" + timerNumber + "</h2>");
+    //  Once number hits zero...
+    if (timerNumber === 0) {
+        //  ...run the stop function.
+        stop();
+        //  Alert the user that time is up.
+        alert("Time Up!");
+        timerNumber = 10;
+        // run();
+    }
+}
+
+//  The stop function
+function stop() {
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+}
+
+//  Execute the run function.
+run();
+
+// Generate question and append to display
 questionGenerator(0);
-
-
-
-
-
 
 
 // === PSEUDOCODE ===
