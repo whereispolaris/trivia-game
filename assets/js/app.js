@@ -6,6 +6,7 @@ var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredQuestions = 0;
 var questionCount = 0;
+var questionNumber = 0;
 
 // === Questions Array ===
 triviaQuestions = [
@@ -55,7 +56,7 @@ function questionGenerator(questionNumber) {
     question.text(triviaQuestions[questionNumber].questionText);
     $("#questionDisplay").append(question);
 
-    // Array of answers 
+    // Array of  possible answers 
     var ansArray = triviaQuestions[questionNumber].answers;
 
     // Generate Loop That Adds Answers to page
@@ -78,12 +79,14 @@ function questionGenerator(questionNumber) {
         if (ansArray[selectedID].correct) {
             console.log("This is correct");
             correctAnswers += 1;
+            // TO DO: Append count to page
             emptyDisplays();
             questionGenerator(questionNumber + 1);
         }
         else {
             console.log("This is incorrect");
             incorrectAnswers += 1;
+            // TO DO: Append count to page
             emptyDisplays();
             questionGenerator(questionNumber + 1);
         }
@@ -113,8 +116,9 @@ function decrement() {
         //  ...run the stop function.
         stop();
         //  Alert the user that time is up.
-        alert("Time Up!");
+        // alert("Time Up!");
         timerNumber = 10;
+        questionNumber += 1;
         // run();
     }
 }
@@ -131,7 +135,7 @@ function stop() {
 run();
 
 // Generate question and append to display
-questionGenerator(0);
+questionGenerator(questionNumber);
 
 
 // === PSEUDOCODE ===
