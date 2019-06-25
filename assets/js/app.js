@@ -48,15 +48,17 @@ function emptyDisplays() {
 }
 
 function correctCounter() {
-    correctAnswers += 1;
     $("#correct").text("Correct Answers: " + correctAnswers);
 }
 
 function incorrectCounter() {
-    incorrectAnswers += 1;
     $("#incorrect").text("Incorrect Answers: " + incorrectAnswers);
 }
 
+function unansweredCounter() {
+    // unansweredQuestions += 1;
+    $("#unanswered").text("Unanswered Questions: " + unansweredQuestions);
+}
 
 
 function questionGenerator() {
@@ -92,12 +94,14 @@ function questionGenerator() {
         if (ansArray[selectedID].correct) {
             console.log("This is correct");
             // TO DO: Append count to page
+            correctAnswers += 1;
             correctCounter();
         }
         else {
             console.log("This is incorrect");
             // TO DO: Append count to page
-            incorrectCounter()
+            incorrectAnswers += 1;
+            incorrectCounter();
         }
         emptyDisplays();
         questionGenerator();
@@ -142,9 +146,6 @@ function stop() {
     clearInterval(intervalId);
 }
 
-//  Execute the run function.
-
-
 // Generate question and append to display
 function start() {
     var startButton = $("<h2>");
@@ -155,10 +156,12 @@ function start() {
 
     // $(".card-body").html("<h1>PRESS BUTTON<h1>");
     $("#startButton").on("click", function () {
-        console.log("clicked")
         emptyDisplays();
         $("#startBtnDisplay").empty();
         questionGenerator();
+        correctCounter();
+        incorrectCounter();
+        unansweredCounter();
         run();
     });
 }
@@ -171,5 +174,6 @@ function gameEnds() {
     $("#questionDisplay").append(gameEndsTag);
 }
 
+// Excecute the start function
 start();
 
