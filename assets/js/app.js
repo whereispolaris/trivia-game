@@ -87,9 +87,8 @@ function questionGenerator() {
 
     // Radio Button Event Handler
     $("input[name='answers']").on("click", function () {
-        console.log("radio button clicked");
-        console.log($(this));
         selectedID = $(this).attr("id");
+
         questionNumber += 1;
         if (ansArray[selectedID].correct) {
             console.log("This is correct");
@@ -97,18 +96,38 @@ function questionGenerator() {
             correctAnswers += 1;
             correctCounter();
         }
-        else {
+        else if (!ansArray[selectedID].correct) {
             console.log("This is incorrect");
             // TO DO: Append count to page
             incorrectAnswers += 1;
             incorrectCounter();
         }
+
+        // else {
+        //     console.log("Time's up");
+        // }
+
         emptyDisplays();
         questionGenerator();
+        run();
     });
 
-
 }
+
+
+
+// if timer is 0 
+// Got to next question
+
+// if no more questions 
+// populate gameends
+
+
+// TO DO:
+//  IF timerNumber === 0
+// Go to next question
+// Add +1 to unanswered questions
+
 
 // === Timer Start ===
 var timerNumber = 10;
@@ -116,6 +135,7 @@ var timerNumber = 10;
 var intervalId;
 
 function run() {
+    timerNumber = 10;
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
 }
