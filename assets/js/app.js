@@ -47,8 +47,19 @@ function emptyDisplays() {
     $("#answersDisplay").empty();
 }
 
+function correctCounter() {
+    correctAnswers += 1;
+    $("#correct").text("Correct Answers: " + correctAnswers);
+}
 
-function questionGenerator(questionNumber) {
+function incorrectCounter() {
+    incorrectAnswers += 1;
+    $("#incorrect").text("Incorrect Answers: " + incorrectAnswers);
+}
+
+
+
+function questionGenerator() {
     // This fuction generates the question and answer from the triviaQuestions array
     var question = $("<h4>");
     // Generate question element
@@ -75,21 +86,21 @@ function questionGenerator(questionNumber) {
     // Radio Button Event Handler
     $("input[name='answers']").on("click", function () {
         console.log("radio button clicked");
+        console.log($(this));
         selectedID = $(this).attr("id");
+        questionNumber += 1;
         if (ansArray[selectedID].correct) {
             console.log("This is correct");
-            correctAnswers += 1;
             // TO DO: Append count to page
-            emptyDisplays();
-            questionGenerator(questionNumber + 1);
+            correctCounter();
         }
         else {
             console.log("This is incorrect");
-            incorrectAnswers += 1;
             // TO DO: Append count to page
-            emptyDisplays();
-            questionGenerator(questionNumber + 1);
+            incorrectCounter()
         }
+        emptyDisplays();
+        questionGenerator();
     });
 
 
@@ -132,12 +143,39 @@ function stop() {
 }
 
 //  Execute the run function.
-run();
+
 
 // Generate question and append to display
-questionGenerator(questionNumber);
+function start() {
+    var startButton = $("<h2>");
+    startButton.attr("id", "startBtnDisplay");
+    startButton.html("<button id='startButton'>Start Game</button>");
+
+    $("#questionDisplay").append(startButton);
+
+    // $(".card-body").html("<h1>PRESS BUTTON<h1>");
+    $("#startButton").on("click", function () {
+        console.log("clicked")
+        emptyDisplays();
+        $("#startBtnDisplay").empty();
+        questionGenerator();
+        run();
+    });
+}
+
+function gameEnds() {
+    var gameEndsTag = $("<h2>");
+    gameEndsTag.attr("id", "gameEndDisplay");
+    gameEndsTag.text("Trivia Is Over");
+    emptyDisplays();
+    $("#questionDisplay").append(gameEndsTag);
+}
+
+start();
 
 
+
+// ==============================================
 // === PSEUDOCODE ===
 
 // DOCUMENT READY
@@ -164,9 +202,9 @@ questionGenerator(questionNumber);
 // === Question ===
 
 /*
-//var questionRowDiv = $("<div>"); 
-// questionRowDiv.addClass("row"); 
- <div class="row"> 
+//var questionRowDiv = $("<div>");
+// questionRowDiv.addClass("row");
+ <div class="row">
     // var questionBox = $("<div>");
     // questionBox.addClass("card col-md-8 questionBox");
     <div class="card col-md-8 questionBox">
@@ -202,7 +240,7 @@ questionGenerator(questionNumber);
             <h6>Unanswered Questions: 0</h6>
         </div>
     </div>
-</div> 
+</div>
 
 */
 
