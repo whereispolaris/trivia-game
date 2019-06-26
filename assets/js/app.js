@@ -41,7 +41,6 @@ triviaQuestions = [
 ];
 
 // === Functions ===
-
 function emptyDisplays() {
     $("#questionDisplay").empty();
     $("#answersDisplay").empty();
@@ -104,15 +103,12 @@ function questionGenerator() {
             incorrectCounter();
         }
 
-        // else {
-        //     console.log("Time's up");
-        // }
-
         emptyDisplays();
         if (questionNumber < triviaQuestions.length) {
             questionGenerator();
             run();
         } else {
+            // stop();
             gameEnds();
         }
 
@@ -145,10 +141,6 @@ function decrement() {
         emptyDisplays();
         questionGenerator();
 
-        //  Alert the user that time is up.
-        // alert("Time Up!");
-
-        // run();
     }
 }
 
