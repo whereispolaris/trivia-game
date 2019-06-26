@@ -63,6 +63,7 @@ function unansweredCounter() {
 
 function questionGenerator() {
     // This fuction generates the question and answer from the triviaQuestions array
+    run();
     var question = $("<h4>");
     // Generate question element
     question.addClass("question");
@@ -108,30 +109,19 @@ function questionGenerator() {
         // }
 
         emptyDisplays();
-        questionGenerator();
-        run();
+        if (questionNumber < triviaQuestions.length) {
+            questionGenerator();
+            run();
+        } else {
+            gameEnds();
+        }
+
     });
 
 }
 
-
-
-// if timer is 0 
-// Got to next question
-
-// if no more questions 
-// populate gameends
-
-
-// TO DO:
-//  IF timerNumber === 0
-// Go to next question
-// Add +1 to unanswered questions
-
-
 // === Timer Start ===
 var timerNumber = 10;
-
 var intervalId;
 
 function run() {
@@ -148,12 +138,16 @@ function decrement() {
     $("#show-number").html("<h2>" + timerNumber + "</h2>");
     //  Once number hits zero...
     if (timerNumber === 0) {
-        //  ...run the stop function.
-        stop();
-        //  Alert the user that time is up.
-        // alert("Time Up!");
         timerNumber = 10;
         questionNumber += 1;
+        //  ...run the stop function.
+        stop();
+        emptyDisplays();
+        questionGenerator();
+
+        //  Alert the user that time is up.
+        // alert("Time Up!");
+
         // run();
     }
 }
@@ -192,6 +186,7 @@ function gameEnds() {
     gameEndsTag.text("Trivia Is Over");
     emptyDisplays();
     $("#questionDisplay").append(gameEndsTag);
+
 }
 
 // Excecute the start function
