@@ -1,4 +1,3 @@
-// Demo Video https://www.youtube.com/watch?v=xhmmiRmxQ8Q&feature=youtu.be
 // Trivia Questions https://usefultrivia.com/geography_trivia/
 
 // ==== Global Variables ====
@@ -61,18 +60,18 @@ function unansweredCounter() {
 
 
 function questionGenerator() {
-    // IMPORTANT FUNCTION - This starts the timer when question is generated.
+    // This starts the timer when question is generated.
     run();
+    // Checks if there are still questions to ask.
     if (questionNumber === triviaQuestions.length) {
-        console.log(questionNumber);
         gameEnds();
         return;
     }
-    // This fuction generates the question and answer from the triviaQuestions array
+    // This fuction generates the question and answer from the triviaQuestions array.
     var question = $("<h4>");
-    // Generate question element
     question.addClass("question");
     question.text(triviaQuestions[questionNumber].questionText);
+    // Add question to div.
     $("#questionDisplay").append(question);
 
     // Array of  possible answers 
@@ -96,18 +95,17 @@ function questionGenerator() {
         selectedID = $(this).attr("id");
         questionNumber += 1;
         if (ansArray[selectedID].correct) {
-            console.log("This is correct");
             correctAnswers += 1;
             correctCounter();
         }
         else if (!ansArray[selectedID].correct) {
-            console.log("This is incorrect");
             incorrectAnswers += 1;
             incorrectCounter();
         }
 
         // IMPORTANT - THIS CLEARS OLD QUESTION FOR NEW ONE TO RUN
         emptyDisplays();
+        // Starts new question
         questionGenerator();
 
     });
