@@ -62,7 +62,6 @@ function unansweredCounter() {
 
 function questionGenerator() {
     // This fuction generates the question and answer from the triviaQuestions array
-    run();
     var question = $("<h4>");
     // Generate question element
     question.addClass("question");
@@ -178,6 +177,7 @@ function gameEnds() {
     gameEndsTag.text("Trivia Is Over");
     emptyDisplays();
     $("#questionDisplay").append(gameEndsTag);
+    stop();
 
 }
 
