@@ -132,9 +132,11 @@ function decrement() {
     $("#show-number").html("<h2>" + timerNumber + "</h2>");
     //  Once number hits zero...
     if (timerNumber === 0) {
+        unansweredQuestions += 1;
         timerNumber = 10;
         questionNumber += 1;
         //  ...run the stop function.
+        unansweredCounter();
         stop();
         emptyDisplays();
         questionGenerator();
