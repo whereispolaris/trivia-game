@@ -61,6 +61,8 @@ function unansweredCounter() {
 
 
 function questionGenerator() {
+    // IMPORTANT FUNCTION - This starts the timer when question is generated.
+    run();
     // This fuction generates the question and answer from the triviaQuestions array
     var question = $("<h4>");
     // Generate question element
