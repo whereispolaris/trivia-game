@@ -36,7 +36,87 @@ triviaQuestions = [
             { answerIndex: 3, answerText: "Bolivia", correct: false },
         ]
     },
-
+    {
+        questionText: "What is Earth's largest continent?",
+        answers: [
+            { answerIndex: 0, answerText: "Asia", correct: true },
+            { answerIndex: 1, answerText: "Europe", correct: false },
+            { answerIndex: 2, answerText: "Antartica", correct: false },
+            { answerIndex: 3, answerText: "Africa", correct: false },
+        ]
+    },
+    {
+        questionText: "What razor-thin country accounts for more than half of the western coastline of South America?",
+        answers: [
+            { answerIndex: 0, answerText: "Bolivia", correct: false },
+            { answerIndex: 1, answerText: "Ecuador", correct: false },
+            { answerIndex: 2, answerText: "Peru", correct: false },
+            { answerIndex: 3, answerText: "Chile", correct: true },
+        ]
+    },
+    {
+        questionText: "What is the driest place on Earth?",
+        answers: [
+            { answerIndex: 0, answerText: "Atacama Desert", correct: false },
+            { answerIndex: 1, answerText: "Sahara Desert", correct: false },
+            { answerIndex: 2, answerText: "Kufra, Libya", correct: false },
+            { answerIndex: 3, answerText: "McMurdo, Antartica", correct: true },
+        ]
+    },
+    {
+        questionText: "What is the oldest city in the world?",
+        answers: [
+            { answerIndex: 0, answerText: "Athens", correct: false },
+            { answerIndex: 1, answerText: "Jerusalem", correct: false },
+            { answerIndex: 2, answerText: "Damascus", correct: true },
+            { answerIndex: 3, answerText: "Jerico", correct: false },
+        ]
+    },
+    {
+        questionText: "Which U.S. state has the most active volcanoes?",
+        answers: [
+            { answerIndex: 0, answerText: "California", correct: false },
+            { answerIndex: 1, answerText: "Alaska", correct: true },
+            { answerIndex: 2, answerText: "Washington", correct: false },
+            { answerIndex: 3, answerText: "Hawaii", correct: false },
+        ]
+    },
+    {
+        questionText: "What is the flattest continent?",
+        answers: [
+            { answerIndex: 0, answerText: "Antartica", correct: false },
+            { answerIndex: 1, answerText: "Africa", correct: false },
+            { answerIndex: 2, answerText: "South America", correct: false },
+            { answerIndex: 3, answerText: "Australia", correct: true },
+        ]
+    },
+    {
+        questionText: "What is the tallest mountain in the world?",
+        answers: [
+            { answerIndex: 0, answerText: "Aconcagua", correct: false },
+            { answerIndex: 1, answerText: "Mount Everest", correct: true },
+            { answerIndex: 2, answerText: "Qogir", correct: false },
+            { answerIndex: 3, answerText: "Kilimanjaro", correct: false },
+        ]
+    },
+    {
+        questionText: "What is the deepest point in Earth's oceans?",
+        answers: [
+            { answerIndex: 0, answerText: "Eurasian Basin", correct: false },
+            { answerIndex: 1, answerText: "Java Trench", correct: false },
+            { answerIndex: 2, answerText: "Mariana Trench", correct: true },
+            { answerIndex: 3, answerText: "Tonga Trench", correct: false },
+        ]
+    },
+    {
+        questionText: "Along with Spain and France, what is the other country to have both Atlantic and Mediterranean coastlines?",
+        answers: [
+            { answerIndex: 0, answerText: "Lebanon", correct: false },
+            { answerIndex: 1, answerText: "Morocco", correct: true },
+            { answerIndex: 2, answerText: "Egypt", correct: false },
+            { answerIndex: 3, answerText: "Syria", correct: false },
+        ]
+    },
 ];
 
 // === Functions ===
