@@ -63,6 +63,11 @@ function unansweredCounter() {
 function questionGenerator() {
     // IMPORTANT FUNCTION - This starts the timer when question is generated.
     run();
+    if (questionNumber === triviaQuestions.length) {
+        console.log(questionNumber);
+        gameEnds();
+        return;
+    }
     // This fuction generates the question and answer from the triviaQuestions array
     var question = $("<h4>");
     // Generate question element
@@ -89,29 +94,21 @@ function questionGenerator() {
     // Radio Button Event Handler
     $("input[name='answers']").on("click", function () {
         selectedID = $(this).attr("id");
-
         questionNumber += 1;
         if (ansArray[selectedID].correct) {
             console.log("This is correct");
-            // TO DO: Append count to page
             correctAnswers += 1;
             correctCounter();
         }
         else if (!ansArray[selectedID].correct) {
             console.log("This is incorrect");
-            // TO DO: Append count to page
             incorrectAnswers += 1;
             incorrectCounter();
         }
 
+        // IMPORTANT - THIS CLEARS OLD QUESTION FOR NEW ONE TO RUN
         emptyDisplays();
-        if (questionNumber < triviaQuestions.length) {
-            questionGenerator();
-            run();
-        } else {
-            // stop();
-            gameEnds();
-        }
+        questionGenerator();
 
     });
 
