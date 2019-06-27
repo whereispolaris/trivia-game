@@ -120,7 +120,7 @@ var timerNumber = 10;
 var intervalId;
 
 function run() {
-    timerNumber = 10;
+    timerNumber = 3;
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
 }
